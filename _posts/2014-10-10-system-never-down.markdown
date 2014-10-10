@@ -1,20 +1,28 @@
 ---
 layout: post
-title:  "Hello world!"
+title:  "protect your system"
 date:   2014-09-24 17:26:48
 categories: unknow
 ---
-这是第一篇测试
+
+
+如何保障你的系统
 ========
 
 
-＃Hello world 演示！
-
-{% highlight java %}
-public class HelloWorld{
-	public static void main(String[] arg){
-		System.out.println("Hello World!");
-	}
-}
-//=> prints 'Hello World!' to STDOUT.
-{% endhighlight %}
+#系统要如何保障稳定性
+1. 容量Tps
+	- 单机性能足够高（内存，线程，CPU 资源使用最小化）
+	- 超过容量的请求拒绝	
+2. 可扩性
+	- 线性可扩，增加机器性能线性增长
+	- 硬件无瓶颈（网卡单点情况）
+	- 外部应用无瓶颈（memcache等第三方组件）
+3. 可靠性（无故障运行）
+	- 系统可降级（配置降级，自动降级，自动降级恢复）
+	- 外部低耦合（任何外部系统，中间件宕机不会影响本应用）
+	- 在外部系统不可用时，业务依旧可用（老数据展示）
+	- 写入数据本地有备份
+4. 安全
+	- 用户信息不丢失
+	- 用户输入做转义 	
